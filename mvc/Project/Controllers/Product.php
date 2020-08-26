@@ -5,10 +5,10 @@
 
         class Product extends Controller
         {
-            public function one($id)
+            public function one($slug)
             {
                 $productModel = new ProductModel();
-                $product = $productModel->getOneProduct($id);
+                $product = $productModel->getOneProduct($slug);
 
                 $this->render('one.php', [
                     'name' => $product['name'],
@@ -16,7 +16,7 @@
                     'test' => '!'
                 ]);
             }
-            public function all()
+            public function all($field, $order)
             {
                 $productModel = new ProductModel();
                 $products = $productModel->getAllProducts();
