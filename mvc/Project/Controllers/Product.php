@@ -10,10 +10,13 @@
                 $productModel = new ProductModel();
                 $product = $productModel->getOneProduct($slug);
 
+                $this->layout = 'index.php';
+                $this->title = '';
+
                 $this->render('one.php', [
                     'name' => $product['name'],
                     'price' => $product['price'],
-                    'test' => '!'
+                    'title' => "Показ страницы {$product['name']}"
                 ]);
             }
             public function all($field, $order)
@@ -23,7 +26,8 @@
 
                 $this->render('all.php', [
                     'products' => $products,
-                    'test' => '!'
+                    'title' => "Список всех продуктов",
+                    'desc' => 'Описание'
                 ]);
             }
 
